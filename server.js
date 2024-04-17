@@ -15,4 +15,4 @@ app.post('/post', function (req, res) {
   res.send("Kamu Bilang: "+req.body);
 });
 
-http.createServer(app).listen(8000);
+http.createServer(app).listen(3000);
