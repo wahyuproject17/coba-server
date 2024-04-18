@@ -1,13 +1,10 @@
-var express = require('express');
-var http = require('http');
-var bodyParser = require('body-parser');
+const express = require('express');
+const http = require('http');
+const bodyParser = require('body-parser');
+const port = 3000;
 
-var app = express();
-app.use(bodyParser.text({
-  type: function(req) {
-    return 'text';
-  }
-}));
+const app = express();
+app.use(bodyParser.json());
 
 app.post('/post', function (req, res) {
   console.log(req.body);
@@ -15,4 +12,6 @@ app.post('/post', function (req, res) {
   res.send("Kamu Bilang: "+req.body);
 });
 
-http.createServer(app).listen(3000);
+app.listen(port, () => {
+  console.log(`Server berjalan di port ${port}`)
+})
